@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+
 
 class CadastroScreen extends StatefulWidget {
   @override
@@ -52,27 +51,13 @@ class _CadastroScreenState extends State<CadastroScreen>
     );
   }
 
-  Future<bool> cadastrarConta(String nome, String email, String senha) async {
-    final url = Uri.parse('http://10.0.2.2:3000/cadastro');
-
-    try {
-      final response = await http.post(
-        url,
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'nome': nome, 'email': email, 'senha': senha}),
-      );
-
-      if (response.statusCode == 201) {
-        return true;
-      } else {
-        print('Erro no cadastro: ${response.body}');
-        return false;
-      }
-    } catch (e) {
-      print('Erro na conexão: $e');
-      return false;
-    }
+Future<bool> cadastrarConta(String nome, String email, String senha) async {
+  await Future.delayed(Duration(seconds: 1));
+  if (email == 'admin@admin.com' && senha == 'admin123') {
+    return false; 
   }
+  return true;
+}
 
   @override
   Widget build(BuildContext context) {

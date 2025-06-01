@@ -134,8 +134,8 @@ class _TransferenciaScreenState extends State<TransferenciaScreen>
                                     style: TextStyle(color: Colors.blue.shade900),
                                   ),
                                   onPressed: () {
-                                    Navigator.pop(context); // fecha dialog
-                                    Navigator.pop(context); // volta para principal
+                                    Navigator.pop(context);
+                                    Navigator.pop(context); 
                                   },
                                 )
                               ],
