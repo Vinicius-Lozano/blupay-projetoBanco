@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/transferencia_args.dart';
+import 'package:share_plus/share_plus.dart';
 
 class PrincipalScreen extends StatelessWidget {
   @override
@@ -78,6 +79,24 @@ class PrincipalScreen extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            SizedBox(height: 16), 
+            SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.blue.shade900,
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () {
+                        Share.share('Confira meu app de banco digital!');
+                    },
+                child: Text('Compartilhar App', style: TextStyle(fontSize: 16)),
+              )
             ),
           ],
         ),

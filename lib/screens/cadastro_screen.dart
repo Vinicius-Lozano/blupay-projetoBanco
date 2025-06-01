@@ -53,7 +53,6 @@ class _CadastroScreenState extends State<CadastroScreen>
   }
 
   Future<bool> cadastrarConta(String nome, String email, String senha) async {
-    // IP 10.0.2.2 é para emulador Android acessar localhost da máquina
     final url = Uri.parse('http://10.0.2.2:3000/cadastro');
 
     try {
@@ -160,8 +159,8 @@ class _CadastroScreenState extends State<CadastroScreen>
                                   TextButton(
                                     child: Text('OK'),
                                     onPressed: () {
-                                      Navigator.pop(context); // fecha dialog
-                                      Navigator.pop(context); // volta tela anterior
+                                      Navigator.pop(context);
+                                      Navigator.pop(context);
                                     },
                                   ),
                                 ],

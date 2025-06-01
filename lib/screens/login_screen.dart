@@ -41,29 +41,16 @@ class _LoginScreenState extends State<LoginScreen>
     super.dispose();
   }
 
-  Future<void> _fazerLogin() async {
-    setState(() => _loading = true);
-    try {
-      final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/login'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'email': _usuario, 'senha': _senha}),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        // Se quiser, pode salvar dados do usuário aqui (ex: nome, saldo)
-        Navigator.pushReplacementNamed(context, '/principal');
-      } else {
-        final data = jsonDecode(response.body);
-        _mostrarErro(data['error'] ?? 'Erro ao fazer login');
-      }
-    } catch (e) {
-      _mostrarErro('Erro de conexão com o servidor');
-    } finally {
-      setState(() => _loading = false);
-    }
+Future<void> _fazerLogin() async {
+  setState(() => _loading = true);
+  await Future.delayed(Duration(seconds: 1));
+  if (_usuario == 'admin@admin.com' && _senha == 'admin123') {
+    Navigator.pushReplacementNamed(context, '/principal');
+  } else {
+    _mostrarErro('Usuário ou senha inválidos');
   }
+  setState(() => _loading = false);
+}
 
   void _mostrarErro(String mensagem) {
     showDialog(

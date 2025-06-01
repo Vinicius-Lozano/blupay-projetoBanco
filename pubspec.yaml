@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.6  # Versão mais atual
+  http: ^0.13.6
+  share_plus: ^7.2.1
 
 dev_dependencies:
   flutter_test:
